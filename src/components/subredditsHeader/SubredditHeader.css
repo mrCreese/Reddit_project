@@ -1,0 +1,33 @@
+.header {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    min-height: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5%;
+    color: #fff;
+    justify-content: center;
+    align-items: flex-start;
+}
+h1 {
+    margin-bottom: 0.5rem;
+}
+.header p:last-child {
+    margin-top: 1.5rem;
+}
+
+.description{
+    width: 100%;
+    line-height: 1.5;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    background-color: #fff;
+    opacity: 0.8;
+    gap: 1rem;
+    box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.04);
+}

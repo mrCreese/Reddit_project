@@ -1,0 +1,61 @@
+.header {
+    box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.04);
+    background-color: aliceblue;
+    padding: 2rem;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    top: 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+    z-index: 10;
+
+
+    .logo {
+        height: 4rem;
+    }
+
+    .git {
+        height: 4rem;
+
+    }
+
+    .input {
+        height: 3rem;
+        text-align: center;
+        border-radius: 12px 0 0 12px;
+        font-size: 1rem;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .button {
+        height: 3rem;
+        width: 6rem;
+        border-radius: 0 12px 12px 0;
+
+        &:hover {
+            cursor: pointer;
+            background-color: bisque;
+
+        }
+    }
+}
+
+@media(max-width:500px) {
+    .header {
+        flex-direction: column;
+
+        .logo {
+            height: 2.5rem;
+        }
+
+        .git {
+            height: 2.5rem;
+        }
+    }
+}
