@@ -5,6 +5,7 @@ import Subredits from './components/subreddits/Subredits'
 import styles from './App.module.scss'
 import SubreditPage from './app/pages/SubreditPage'
 import Filter from './components/filter/Filter'
+import SearchPage from './app/pages/SearchPage'
 
 const App = () => {
 
@@ -20,6 +21,7 @@ const App = () => {
           <Filter />
           <Routes>
             <Route exact path='/r/:subreddit' element={<SubreditPage />} />
+            <Route exact path='/search/:searchTerm' element={<SearchPage />} />
           </Routes>
         </section>
       </div>

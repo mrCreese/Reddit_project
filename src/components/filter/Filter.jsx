@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter, selectFilter } from '../../app/features/filterSlice';
 
@@ -7,9 +7,6 @@ import './Filter.css';
 const Filter = () => {
     const filter = useSelector(selectFilter);
     const dispatch = useDispatch();
-    /*     useEffect(() => {
-            dispatch(changeFilter({ nameOfFilter: 'hot' }))
-        }, [dispatch]) */
 
     const handleClick = (e) => {
         const newTitle = e.target.title;

@@ -5,8 +5,8 @@ import SubredditsHeader from '../../components/subredditsHeader/SubredditHeader'
 const SubreditPage = () => {
   return (
     <div>
-        <SubredditsHeader />
-        <Posts />
+      <SubredditsHeader />
+      <Posts />
     </div>
   )
 }

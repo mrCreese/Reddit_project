@@ -18,7 +18,7 @@ export const fetchSubreddits = createAsyncThunk(
                 url,
             } = subbredit.data
             return {
-                bannerImg:banner_img,
+                bannerImg: banner_img,
                 subreddit: display_name_prefixed,
                 icon: icon_img,
                 description: public_description,
@@ -59,9 +59,10 @@ const subredditsSlice = createSlice({
 
         [fetchSubreddits.rejected]: (state, action) => {
             state.status = 'failed';
-            state.error = action.error.message        }
+            state.error = action.error.message
+        }
     }
 })
-export const AllSubreddits = (state)=> state.subreddits.subreddits
+export const AllSubreddits = (state) => state.subreddits.subreddits
 
 export default subredditsSlice.reducer;
