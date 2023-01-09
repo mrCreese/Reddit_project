@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectFilter } from '../../app/features/filterSlice';
-import { allPosts, fetchPosts, fetchPostsBySearchPosts } from '../../app/features/postsSlice';
+import { fetchPosts, fetchPostsBySearchPosts } from '../../app/features/postsSlice';
 import { changeSearchTerm, selectSearchTerm } from '../../app/features/searchTermSlice';
+import Loading from '../Loading';
 import Post from '../post/Post';
 
 
@@ -11,23 +12,25 @@ const Posts = () => {
     const dispatch = useDispatch();
     const { subreddit } = useParams();
     const filter = useSelector(selectFilter);
-    const posts = useSelector(allPosts);
+    const { status, error, posts } = useSelector(state => state.posts)
     const url = useParams();
     const searchTerm = useSelector(selectSearchTerm);
 
     useEffect(() => {
-        const payload = { filter, subreddit: subreddit ? subreddit : 'popular' };
-        if (!url.searchTerm) {
+        const payload = { filter, subreddit: subreddit ? subreddit : 'popular_' };
+        if (url.searchTerm) {
+            dispatch(fetchPostsBySearchPosts(searchTerm));
+        } else {
             dispatch(fetchPosts(payload));
             dispatch(changeSearchTerm({ searchTerm: '' }));
-        } else {
-            dispatch(fetchPostsBySearchPosts(searchTerm));
         }
     }, [dispatch, filter, subreddit, searchTerm, url]);
 
     return (
         <div>
-            {posts.map(post => <Post key={post.id} {...post} />)}
+            {status === 'loading' && <Loading />}
+            {error && <h2 style={{ textAlign: 'center'}}>{error}</h2>}
+            {status === 'resolved' && posts.map(post => <Post key={post.id} {...post} />)}
         </div>
     )
 

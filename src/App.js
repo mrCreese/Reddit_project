@@ -6,6 +6,8 @@ import styles from './App.module.scss'
 import SubreditPage from './app/pages/SubreditPage'
 import Filter from './components/filter/Filter'
 import SearchPage from './app/pages/SearchPage'
+import HomePage from './app/pages/HomePage'
+import NotFoundPage from './app/pages/NotFoundPage'
 
 const App = () => {
 
@@ -20,8 +22,10 @@ const App = () => {
         <section className={styles.posts}>
           <Filter />
           <Routes>
-            <Route exact path='/r/:subreddit' element={<SubreditPage />} />
-            <Route exact path='/search/:searchTerm' element={<SearchPage />} />
+            <Route  path='/' element={<HomePage />} />
+            <Route  path='/r/:subreddit' element={<SubreditPage />} />
+            <Route  path='/search/:searchTerm' element={<SearchPage />} />
+            <Route  path='*' element={<NotFoundPage />} />
           </Routes>
         </section>
       </div>
