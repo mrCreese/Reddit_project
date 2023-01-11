@@ -46,7 +46,7 @@
     width: 100%;
     line-height: 1.42;
     font-weight: 100;
-  
+
     overflow-y: scroll;
     max-height: 500px;
 }

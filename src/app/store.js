@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import subredditsReducer from './features/subredditsSlice';
-import postsReducer from './features/postsSlice';
-import filterReducer from './features/filterSlice';
-import searchReducer from './features/searchTermSlice';
+import subredditsReducer from './slicers/subredditsSlice';
+import postsReducer from './slicers/postsSlice';
+import filterReducer from './slicers/filterSlice';
+import searchReducer from './slicers/searchTermSlice';
 
 export const store = configureStore({
-  reducer: {
-    subreddits: subredditsReducer,
-    posts: postsReducer,
-    filter: filterReducer,
-    search: searchReducer
-  },
+    reducer: {
+        subreddits: subredditsReducer,
+        posts: postsReducer,
+        filter: filterReducer,
+        search: searchReducer
+    },
 });

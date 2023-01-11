@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { selectFilter } from '../../app/features/filterSlice';
-import { fetchPosts, fetchPostsBySearchPosts } from '../../app/features/postsSlice';
-import { changeSearchTerm, selectSearchTerm } from '../../app/features/searchTermSlice';
+import { selectFilter } from '../../app/slicers/filterSlice';
+import { fetchPosts, fetchPostsBySearchPosts } from '../../app/slicers/postsSlice';
+import { changeSearchTerm, selectSearchTerm } from '../../app/slicers/searchTermSlice';
 import Loading from '../Loading';
 import Post from '../post/Post';
 
@@ -29,7 +29,7 @@ const Posts = () => {
     return (
         <div>
             {status === 'loading' && <Loading />}
-            {error && <h2 style={{ textAlign: 'center'}}>{error}</h2>}
+            {error && <h2 style={{ textAlign: 'center' }}>{error}</h2>}
             {status === 'resolved' && posts.map(post => <Post key={post.id} {...post} />)}
         </div>
     )

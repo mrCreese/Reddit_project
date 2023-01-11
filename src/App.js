@@ -11,28 +11,28 @@ import NotFoundPage from './app/pages/NotFoundPage'
 
 const App = () => {
 
-  return (
-    <div>
+    return (
+        <div>
 
-      <Header />
-      <div className={styles.main_container}>
-        <section>
-          <Subredits />
-        </section>
-        <section className={styles.posts}>
-          <Filter />
-          <Routes>
-            <Route  path='/' element={<HomePage />} />
-            <Route  path='/r/:subreddit' element={<SubreditPage />} />
-            <Route  path='/search/:searchTerm' element={<SearchPage />} />
-            <Route  path='*' element={<NotFoundPage />} />
-          </Routes>
-        </section>
-      </div>
+            <Header />
+            <div className={styles.main_container}>
+                <section>
+                    <Subredits />
+                </section>
+                <section className={styles.posts}>
+                    <Filter />
+                    <Routes>
+                        <Route path='/' element={<HomePage />} />
+                        <Route path='/r/:subreddit' element={<SubreditPage />} />
+                        <Route path='/search/:searchTerm' element={<SearchPage />} />
+                        <Route path='*' element={<NotFoundPage />} />
+                    </Routes>
+                </section>
+            </div>
 
 
-    </div>
-  )
+        </div>
+    )
 }
 
 export default App
