@@ -10,8 +10,8 @@ const Filter = () => {
 
     const handleClick = (e) => {
         const newTitle = e.target.title;
-        dispatch(changeFilter({ nameOfFilter: newTitle }))
-    }
+        dispatch(changeFilter({ nameOfFilter: newTitle }));
+    };
     return (
         <div className='filter_container'>
             <div
@@ -36,7 +36,7 @@ const Filter = () => {
                 New
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Filter
+export default Filter;

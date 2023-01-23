@@ -1,51 +1,30 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { transformSubreddit } from '../helpers/transformSubreddit_helper.jsx';
+import { fetchForm } from '../helpers/fetchForm_helper.jsx';
 
-
-
+export function createSubreddits(param) {
+    const newPosts = param.data.children.map((subreddit) =>
+        transformSubreddit(subreddit)
+    );
+    return newPosts;
+}
 export const fetchSubreddits = createAsyncThunk(
     'subreddits/fetchSubreddits',
-    async function (_, { rejectWithValue }) {
-        try {
-            const response = await fetch('https://www.reddit.com/subreddits.json');
-            if (!response.ok) {
-                throw new Error('Not found!');
-            }
-            const jsonData = await response.json();
-            const newSubreddits = jsonData.data.children.map((subbredit) => {
-                const {
-                    banner_img,
-                    display_name_prefixed,
-                    icon_img,
-                    public_description,
-                    subscribers,
-                    title,
-                    url,
-                } = subbredit.data
-                return {
-                    bannerImg: banner_img,
-                    subreddit: display_name_prefixed,
-                    icon: icon_img,
-                    description: public_description,
-                    subscribers,
-                    title,
-                    url
-                }
-            })
-            newSubreddits.shift();
-            return newSubreddits;
-        } catch (error) {
-            return rejectWithValue(error.message);
-        }
+    async function (_, rejectWithValue) {
+        return await fetchForm(
+            'https://www.reddit.com/subreddits.json',
+            createSubreddits,
+            rejectWithValue
+        );
     }
-)
-
+);
 
 const subredditsSlice = createSlice({
     name: 'subreddits',
     initialState: {
         subreddits: [],
         status: null,
-        error: null
+        error: null,
     },
     reducers: {},
     extraReducers: {
@@ -60,9 +39,9 @@ const subredditsSlice = createSlice({
         [fetchSubreddits.rejected]: (state, action) => {
             state.status = 'failed';
             state.error = action.payload;
-        }
-    }
-})
-export const AllSubreddits = (state) => state.subreddits.subreddits
+        },
+    },
+});
+export const AllSubreddits = (state) => state.subreddits.subreddits;
 
 export default subredditsSlice.reducer;

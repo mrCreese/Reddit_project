@@ -1,41 +1,40 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { postObject } from "../helpers/helps";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { transformPost } from '../helpers/transformPost_helper';
+import { fetchForm } from '../helpers/fetchForm_helper';
 
-const fetchForm = async (url, { rejectWithValue }) => {
-
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('Server Error!');
-        }
-        const jsonData = await response.json();
-        return postObject(jsonData);
-    } catch (error) {
-        return rejectWithValue(error.message);
-    }
+export function createPostsObject(param) {
+    const newPosts = param.data.children.map((post) => transformPost(post));
+    return newPosts;
 }
 
 export const fetchPosts = createAsyncThunk(
     'posts/fetchPosts',
     async (payload, rejectValue) => {
         const { filter, subreddit } = payload;
-        return await fetchForm(`https://www.reddit.com/r/${subreddit}/${filter}.json`, rejectValue)
+        return await fetchForm(
+            `https://www.reddit.com/r/${subreddit}/${filter}.json`,
+            createPostsObject,
+            rejectValue
+        );
     }
 );
 
 export const fetchPostsBySearchPosts = createAsyncThunk(
     'posts/fetchPostsBySearchPosts',
     async (searchTerm, rejectValue) => {
-        return await fetchForm(`https://www.reddit.com/search.json?q=${searchTerm}`, rejectValue)
+        return await fetchForm(
+            `https://www.reddit.com/search.json?q=${searchTerm}`,
+            rejectValue
+        );
     }
-)
+);
 
 const postsSlice = createSlice({
     name: 'posts',
     initialState: {
         posts: [],
         status: null,
-        error: null
+        error: null,
     },
     reducers: {},
     extraReducers: {
@@ -61,8 +60,8 @@ const postsSlice = createSlice({
         [fetchPostsBySearchPosts.rejected]: (state, action) => {
             state.status = 'rejected';
             state.error = action.payload;
-        }
-    }
-})
+        },
+    },
+});
 
 export default postsSlice.reducer;
