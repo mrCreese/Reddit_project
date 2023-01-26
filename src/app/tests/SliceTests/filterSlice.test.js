@@ -1,4 +1,4 @@
-import filterReducer, { changeFilter } from './filterSlice.jsx';
+import filterReducer, { changeFilter } from '../../slicers/filterSlice.jsx';
 
 describe('filterSlice', () => {
     test('should return default state first render', () => {

@@ -3,8 +3,7 @@ import { transformPost } from '../helpers/transformPost_helper';
 import { fetchForm } from '../helpers/fetchForm_helper';
 
 export function createPostsObject(param) {
-    const newPosts = param.data.children.map((post) => transformPost(post));
-    return newPosts;
+    return param.data.children.map((post) => transformPost(post));
 }
 
 export const fetchPosts = createAsyncThunk(
@@ -52,6 +51,7 @@ const postsSlice = createSlice({
         },
         [fetchPostsBySearchPosts.pending]: (state) => {
             state.status = 'loading';
+            state.error = null;
         },
         [fetchPostsBySearchPosts.fulfilled]: (state, action) => {
             state.status = 'resolved';

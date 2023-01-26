@@ -3,11 +3,11 @@ import { transformSubreddit } from '../helpers/transformSubreddit_helper.jsx';
 import { fetchForm } from '../helpers/fetchForm_helper.jsx';
 
 export function createSubreddits(param) {
-    const newPosts = param.data.children.map((subreddit) =>
+    return param.data.children.map((subreddit) =>
         transformSubreddit(subreddit)
     );
-    return newPosts;
 }
+
 export const fetchSubreddits = createAsyncThunk(
     'subreddits/fetchSubreddits',
     async function (_, rejectWithValue) {
@@ -38,7 +38,7 @@ const subredditsSlice = createSlice({
 
         [fetchSubreddits.rejected]: (state, action) => {
             state.status = 'failed';
-            state.error = action.payload;
+            state.error = action.error.message;
         },
     },
 });

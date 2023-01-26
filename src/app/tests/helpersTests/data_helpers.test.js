@@ -1,10 +1,10 @@
-import { calculateData } from './date_helpers';
+import { calculateData } from '../../helpers/date_helpers';
 
-const myData = '26.Apr.2018 23:24:06';
+const myData = '1/1/2023, 15:10:57';
 
 describe('calculate data', () => {
     test('calculate data and return in rigth format', () => {
-        const result = calculateData(1524781446);
+        const result = calculateData(1672582257);
         expect(result).toEqual(myData);
     });
 });

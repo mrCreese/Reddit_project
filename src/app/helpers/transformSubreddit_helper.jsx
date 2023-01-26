@@ -8,6 +8,7 @@ export function transformSubreddit(subbredit) {
         title,
         url,
     } = subbredit.data;
+
     return {
         bannerImg: banner_img,
         subreddit: display_name_prefixed,

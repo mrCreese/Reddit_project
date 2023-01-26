@@ -9,10 +9,9 @@ export function transformPost(post) {
         title,
         selftext,
     } = post.data;
-    let postImage =
+    const postImage =
         (post.data.url.includes('.jpg') || post.data.url.includes('.png')) &&
         post.data.url;
-    if (!postImage) postImage = null;
 
     const timestamp = post.data.created_utc;
     const time = calculateData(timestamp);

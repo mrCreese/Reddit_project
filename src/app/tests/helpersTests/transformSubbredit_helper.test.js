@@ -1,4 +1,4 @@
-import { transformSubreddit } from './transformSubreddit_helper';
+import { transformSubreddit } from '../../helpers/transformSubreddit_helper';
 
 const dataSubreddit = {
     data: {
