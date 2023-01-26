@@ -12,14 +12,16 @@
     justify-content: center;
     align-items: flex-start;
 }
+
 h1 {
     margin-bottom: 0.5rem;
 }
+
 .header p:last-child {
     margin-top: 1.5rem;
 }
 
-.description{
+.description {
     width: 100%;
     line-height: 1.5;
     border-radius: 10px;

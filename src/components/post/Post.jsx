@@ -20,19 +20,14 @@ const Post = ({
                 <p className='data_post'>{time}</p>
             </div>
             <h1 className='title_post'>{title}</h1>
-            {text
-                ? <h4 className='text_post'>{text}</h4>
-                : null
-
+            {
+                text && <h4 className='text_post'>{text}</h4>
             }
 
-            {image
-                ? (
-                    <div className='image_container'>
-                        <img src={image} alt={title} />
-                    </div>
-
-                ) : null
+            {
+                image && <div className='image_container'>
+                    <img src={image} alt={title} />
+                </div>
             }
             <p className='comments_post'>comments:{numberOfComments}</p>
         </article>

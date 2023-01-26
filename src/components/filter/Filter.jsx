@@ -1,20 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeFilter, selectFilter } from '../../app/features/filterSlice';
+import { changeFilter, selectFilter } from '../../app/slicers/filterSlice';
 
 import './Filter.css';
 
 const Filter = () => {
     const filter = useSelector(selectFilter);
     const dispatch = useDispatch();
-    /*     useEffect(() => {
-            dispatch(changeFilter({ nameOfFilter: 'hot' }))
-        }, [dispatch]) */
 
     const handleClick = (e) => {
         const newTitle = e.target.title;
-        dispatch(changeFilter({ nameOfFilter: newTitle }))
-    }
+        dispatch(changeFilter({ nameOfFilter: newTitle }));
+    };
     return (
         <div className='filter_container'>
             <div
@@ -39,7 +36,7 @@ const Filter = () => {
                 New
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Filter
+export default Filter;

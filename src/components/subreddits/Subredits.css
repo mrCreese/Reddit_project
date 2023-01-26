@@ -2,18 +2,20 @@
     color: hsla(360, 100%, 34%, 1);
     text-decoration: underline;
     letter-spacing: 2px;
-    
-   
-}
- .home h1 {
-        margin-bottom: 0.5rem;
-    }
-  
 
-.links{
+
+}
+
+.home h1 {
+    margin-bottom: 0.5rem;
+}
+
+
+.links {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
+
 .active {
     text-decoration: underline;
     color: hsla(360, 100%, 34%, 1);

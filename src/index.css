@@ -6,40 +6,42 @@
     border: none;
     box-sizing: border-box;
 }
+
 html,
 body {
     height: 100%;
     min-width: 320px;
 }
+
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 li {
-  list-style: none;
+    list-style: none;
 }
 
 
 body {
-  line-height: 1;
-  font-family: Poppins;
-  color: #666666;
-  background-color: #eef3f8;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    line-height: 1;
+    font-family: Poppins;
+    color: #666666;
+    background-color: #eef3f8;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
 }
 
 html {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 #root {
 
-  margin: 0 auto;
+    margin: 0 auto;
 }
