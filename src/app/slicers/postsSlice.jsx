@@ -23,6 +23,7 @@ export const fetchPostsBySearchPosts = createAsyncThunk(
     async (searchTerm, rejectValue) => {
         return await fetchForm(
             `https://www.reddit.com/search.json?q=${searchTerm}`,
+            createPostsObject,
             rejectValue
         );
     }
