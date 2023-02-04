@@ -15,6 +15,7 @@ const Filter = () => {
     return (
         <div className='filter_container'>
             <div
+                type='button'
                 title='hot'
                 className={filter === 'hot' ? 'active' : 'noActive'}
                 onClick={handleClick}
@@ -22,6 +23,7 @@ const Filter = () => {
                 Hot
             </div>
             <div
+                type='button'
                 title='top'
                 className={filter === 'top' ? 'active' : 'noActive'}
                 onClick={handleClick}
@@ -29,6 +31,7 @@ const Filter = () => {
                 Top
             </div>
             <div
+                type='button'
                 title='new'
                 className={filter === 'new' ? 'active' : 'noActive'}
                 onClick={handleClick}
